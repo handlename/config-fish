@@ -42,6 +42,8 @@ function git-cd
     cd "$dir"
 end
 
+bind \cxc git-cd
+
 # perl
 alias pd 'LANG=C perldoc'
 alias pl './vendor/bin/carton exec perl -Ilib'

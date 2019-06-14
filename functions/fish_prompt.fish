@@ -3,6 +3,7 @@ set -g __fish_git_prompt_showuntrackedfiles 'yes'
 
 set -g __fish_git_prompt_char_dirtystate '*'
 set -g __fish_git_prompt_char_stagedstate '^'
+set -g __fish_git_prompt_char_untrackedfiles '?'
 
 function fish_prompt --description 'Write out the prompt'
 	set -l last_status $status

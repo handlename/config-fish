@@ -1,2 +1,4 @@
 fish_variables
+fisher/
+functions/fisher.fish
 private.fish

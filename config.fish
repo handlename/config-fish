@@ -24,9 +24,13 @@ function fisher_add_package
 end
 
 fisher_add_package jethrokuan/fzf
+fisher_add_package decors/fish-ghq
 
 # package:jethrokuan/fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
+
+# package:decors/fish-ghq
+bind \cxg '__ghq_repository_search'
 
 # ssh
 set -x SSH_AUTH_SOCK (/bin/launchctl getenv SSH_AUTH_SOCK)

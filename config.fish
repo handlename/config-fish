@@ -23,6 +23,10 @@ function fisher_add_package
     end
 end
 
+fisher_add_package jethrokuan/fzf
+
+# package:jethrokuan/fzf
+set -U FZF_LEGACY_KEYBINDINGS 0
 
 # ssh
 set -x SSH_AUTH_SOCK (/bin/launchctl getenv SSH_AUTH_SOCK)

@@ -4,52 +4,14 @@ set fish_user_paths /usr/local/sbin $fish_user_paths
 set fish_user_paths ~/src/github.com/handlename/kayac-private/bin $fish_user_paths
 set fish_user_paths ~/bin $fish_user_paths
 
-# fisher
-if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
-end
-
-set -g fisher_path ~/.config/fish/fisher
-set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
-set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..-1]
-
-for file in $fisher_path/conf.d/*.fish
-    builtin source $file 2> /dev/null
-end
-
-function fisher_add_package
-    set package $argv[1]
-
-    if not fisher ls | fgrep "$package" >/dev/null
-        fisher add "$package"
-    end
-end
-
-fisher_add_package jethrokuan/fzf
+builtin source config_fisher.fish
+builtin source config_fzf.fish
+builtin source config_ghq.fish
 fisher_add_package jethrokuan/z
-fisher_add_package decors/fish-ghq
 
-# package:jethrokuan/fzf
-set -U FZF_LEGACY_KEYBINDINGS 0
-
-function fzf_git_checkout_branch -d "Fuzzy-find and checkout a branch"
-    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
-end
-
-bind \cxb 'fzf_git_checkout_branch'
-
-# package:decors/fish-ghq
-bind \cxg '__ghq_repository_search'
-
-# ssh
-set -x SSH_AUTH_SOCK (/bin/launchctl getenv SSH_AUTH_SOCK)
-
-# homebrew
-# https://github.com/settings/applications#personal-access-tokens
-# set -x HOMEBREW_GITHUB_API_TOKEN SECRET
-set -x HOMEBREW_NO_ANALYTICS 1
+builtin source config_ssh.fish
+builtin source config_homebrew.fish
+builtin source config_git.fish
 
 # source hilighter
 set -x LESS ' -R '
@@ -70,18 +32,6 @@ alias lla 'ls -lahG'
 
 # rsync
 alias rsync 'rsync -P'
-
-# git
-eval (hub alias -s)
-alias g 'hub'
-
-function git-cd
-    set -l topdir (git rev-parse --show-toplevel)
-    set -l dir (git ls-files --full-name $topdir | grep '/' | perl -nE 's![^/]+$!!; say' | sort | uniq | fzf)
-    cd "$dir"
-end
-
-bind \cxc git-cd
 
 # perl
 alias pd 'LANG=C perldoc'

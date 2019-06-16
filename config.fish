@@ -6,7 +6,7 @@ set fish_user_paths /usr/local/sbin $fish_user_paths
 set fish_user_paths ~/src/github.com/handlename/kayac-private/bin $fish_user_paths
 set fish_user_paths ~/bin $fish_user_paths
 
-# souce *.fish
+# source *.fish
 set config_dir ~/.config/fish
 
 source $config_dir/config_fisher.fish

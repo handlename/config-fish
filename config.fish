@@ -7,7 +7,7 @@ set fish_user_paths ~/src/github.com/handlename/kayac-private/bin $fish_user_pat
 set fish_user_paths ~/bin $fish_user_paths
 
 # source *.fish
-set config_dir ~/.config/fish
+set config_dir (dirname (status -f))
 
 source $config_dir/config_fisher.fish
 source $config_dir/config_fzf.fish

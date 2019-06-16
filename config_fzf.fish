@@ -1,5 +1,3 @@
-fisher_add_package jethrokuan/fzf
-
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 function fzf_git_checkout_branch -d "Fuzzy-find and checkout a branch"

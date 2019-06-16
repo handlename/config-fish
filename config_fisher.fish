@@ -11,11 +11,3 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 for file in $fisher_path/conf.d/*.fish
     builtin source $file 2> /dev/null
 end
-
-function fisher_add_package
-    set package $argv[1]
-
-    if not fisher ls | fgrep "$package" >/dev/null
-        fisher add "$package"
-    end
-end

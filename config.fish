@@ -4,14 +4,16 @@ set fish_user_paths /usr/local/sbin $fish_user_paths
 set fish_user_paths ~/src/github.com/handlename/kayac-private/bin $fish_user_paths
 set fish_user_paths ~/bin $fish_user_paths
 
-builtin source config_fisher.fish
-builtin source config_fzf.fish
-builtin source config_ghq.fish
-fisher_add_package jethrokuan/z
+# souce *.fish
+set config_dir ~/.config/fish
 
-builtin source config_ssh.fish
-builtin source config_homebrew.fish
-builtin source config_git.fish
+source $config_dir/config_fisher.fish
+source $config_dir/config_fzf.fish
+source $config_dir/config_ghq.fish
+
+source $config_dir/config_git.fish
+source $config_dir/config_homebrew.fish
+source $config_dir/config_ssh.fish
 
 # source hilighter
 set -x LESS ' -R '

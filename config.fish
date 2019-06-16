@@ -28,6 +28,7 @@ function fisher_add_package
 end
 
 fisher_add_package jethrokuan/fzf
+fisher_add_package jethrokuan/z
 fisher_add_package decors/fish-ghq
 
 # package:jethrokuan/fzf

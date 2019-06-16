@@ -34,6 +34,12 @@ fisher_add_package decors/fish-ghq
 # package:jethrokuan/fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
 
+function fzf_git_checkout_branch -d "Fuzzy-find and checkout a branch"
+    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+end
+
+bind \cxb 'fzf_git_checkout_branch'
+
 # package:decors/fish-ghq
 bind \cxg '__ghq_repository_search'
 

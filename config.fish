@@ -87,3 +87,8 @@ alias e 'emacsclient -n'
 
 # mosh
 alias mosh 'LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 mosh'
+
+# stderred
+if test -e ~/src/github.com/sickill/stderred/build/libstderred.dylib
+    set -x DYLD_INSERT_LIBRARIES ~/src/github.com/sickill/stderred/build/libstderred.dylib
+end

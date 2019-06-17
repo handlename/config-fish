@@ -1,2 +1,2 @@
-set -Ux fish_user_paths ~/.anyenv/bin $fish_user_paths
+set -x PATH ~/.anyenv/bin $PATH
 status --is-interactive; and source (anyenv init -|psub)

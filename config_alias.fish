@@ -13,7 +13,7 @@ alias lla 'ls -lahG'
 alias rsync 'rsync -P'
 
 # perl
-alias pd 'LANG=C perldoc'
+alias pd 'env LANG=C perldoc'
 alias pl './vendor/bin/carton exec perl -Ilib'
 alias pv 'prove -l'
 alias pvv './vendor/bin/carton exec prove -lv'

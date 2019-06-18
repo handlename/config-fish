@@ -1,7 +1,9 @@
 set -U FZF_LEGACY_KEYBINDINGS 0
 
-function fzf_git_checkout_branch -d "Fuzzy-find and checkout a branch"
-    git branch --all | grep -v HEAD | string trim | fzf | read -l result; and git checkout "$result"
+function fzf_git_checkout_branch
+    set branch (git branch --all | grep -v HEAD | string trim | fzf --no-multi)
+    git checkout (echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+    echo -e '\n'
     commandline -f repaint
 end
 

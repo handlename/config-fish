@@ -1,4 +1,5 @@
 set -U FZF_LEGACY_KEYBINDINGS 0
+set -x FZF_DEFAULT_OPTS '--layout=reverse --height 40%'
 
 function fzf_git_checkout_branch
     set branch (git branch --all | grep -v HEAD | string trim | fzf --no-multi)

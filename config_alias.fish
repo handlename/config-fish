@@ -23,3 +23,6 @@ alias e 'emacsclient -n'
 
 # mosh
 alias mosh 'LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 mosh'
+
+# aswrap
+alias aw 'aswrap'

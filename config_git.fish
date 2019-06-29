@@ -16,11 +16,23 @@ function git-checkout-branch
     commandline -f repaint
 end
 
+function git-help
+    set -l cmd (git help -a | egrep '^  \S' | xargs -n1 echo | sort | fzf --preview 'git help {} | head -20' --bind 'ctrl-e:execute-silent(open dash://manpages:git-{})+abort')
+
+    if ! test -n "$cmd"
+        commandline --function repaint
+        return
+    end
+
+    commandline --insert "$cmd "
+end
+
 # keybindings
 
 bind \cxgb git-checkout-branch
 bind \cxgc git-cd
 bind \cxgg __ghq_repository_search
+bind \cxgh git-help
 
 # keybindings (erase)
 bind --erase \cg '__ghq_repository_search'

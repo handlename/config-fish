@@ -10,7 +10,7 @@ function aws-help
     end
 
     set -l cmd (cat "$cmdfile" \
-    | fzf --preview 'aws {1} {2} help' --bind 'ctrl-e:execute(open https://docs.aws.amazon.com/cli/latest/reference/{1}/{2}.html)+abort')
+    | fzf --preview 'aws {1} {2} help' --bind 'ctrl-e:execute(echo {} | pbcopy && open https://docs.aws.amazon.com/cli/latest/reference/{1}/{2}.html)+abort')
 
     if ! test -n "$cmd"
         commandline --function repaint

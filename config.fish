@@ -14,6 +14,7 @@ source $config_dir/config_fzf.fish
 
 source $config_dir/config_anyenv.fish
 source $config_dir/config_direnv.fish
+source $config_dir/config_aws.fish # prefix: \cxa
 source $config_dir/config_git.fish # prefix: \cxg
 source $config_dir/config_homebrew.fish
 source $config_dir/config_ssh.fish

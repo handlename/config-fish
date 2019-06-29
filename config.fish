@@ -11,11 +11,10 @@ set config_dir (dirname (status -f))
 
 source $config_dir/config_fisher.fish
 source $config_dir/config_fzf.fish
-source $config_dir/config_ghq.fish
 
 source $config_dir/config_anyenv.fish
 source $config_dir/config_direnv.fish
-source $config_dir/config_git.fish
+source $config_dir/config_git.fish # prefix: \cg
 source $config_dir/config_homebrew.fish
 source $config_dir/config_ssh.fish
 

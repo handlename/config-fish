@@ -1,7 +1,6 @@
 # functions
 
 function aws-help
-
     set -l cachedir (dirname (status --current-filename))/cache
     set -l cmdfile  "$cachedir/awscli_commands.txt"
 

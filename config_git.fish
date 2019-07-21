@@ -1,5 +1,6 @@
 eval (hub alias -s)
-alias g 'hub'
+alias git 'hub'
+abbr g 'git'
 
 # functions
 function git-cd

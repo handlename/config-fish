@@ -1,1 +1,1 @@
-emacsclient -e '(spacemacs/force-init-spacemacs-env)' 1>/dev/null
+perl $HOME/src/github.com/handlename/spacemacs-private/scripts/init_shellenv.pl > $HOME/.spacemacs.env

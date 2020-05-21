@@ -20,5 +20,3 @@ source $config_dir/config_homebrew.fish
 source $config_dir/config_ssh.fish
 
 source $config_dir/config_alias.fish
-
-source $config_dir/config_emacs.fish

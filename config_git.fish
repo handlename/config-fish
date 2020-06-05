@@ -17,7 +17,7 @@ function git-cd
     commandline --function repaint
 end
 
-function git-checkout-branch
+function git-switch-branch
     set branch (git branch --all \
     | grep -v HEAD \
     | string trim \
@@ -25,6 +25,7 @@ function git-checkout-branch
     )
 
     git checkout (echo "$branch" \
+    git switch (echo "$branch" \
     | sed "s/.* //" \
     | sed "s#remotes/[^/]*/##" \
     )
@@ -56,7 +57,7 @@ end
 
 # keybindings
 
-bind \cxgb git-checkout-branch
+bind \cxgb git-switch-branch
 bind \cxgc git-cd
 bind \cxgg __ghq_repository_search
 bind \cxgh git-help

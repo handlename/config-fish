@@ -50,12 +50,17 @@ function git-help
     commandline --insert "$cmd "
 end
 
+function github-open-pr
+    gh pr view --web
+end
+
 # keybindings
 
 bind \cxgb git-checkout-branch
 bind \cxgc git-cd
 bind \cxgg __ghq_repository_search
 bind \cxgh git-help
+bind \cxgp github-open-pr
 
 # keybindings (erase)
 bind --erase \cg '__ghq_repository_search'

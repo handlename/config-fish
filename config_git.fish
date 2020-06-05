@@ -75,6 +75,8 @@ end
 
 function github-open-pr
     gh pr view --web
+    echo -e '\n'
+    commandline --function repaint
 end
 
 # keybindings

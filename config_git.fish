@@ -24,7 +24,11 @@ function git-switch-branch
     | fzf --no-multi \
     )
 
-    git checkout (echo "$branch" \
+    if test -z "$branch"
+        commandline -f repaint
+        return
+    end
+
     git switch (echo "$branch" \
     | sed "s/.* //" \
     | sed "s#remotes/[^/]*/##" \

@@ -83,7 +83,8 @@ bind \cxgb git-switch-branch
 bind \cxgc git-cd
 bind \cxgg __ghq_repository_search
 bind \cxgh git-help
-bind \cxgp github-open-pr
+bind \cxgp github-switch-pr
+bind \cxgo github-open-pr
 
 # keybindings (erase)
 bind --erase \cg '__ghq_repository_search'

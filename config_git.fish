@@ -3,6 +3,7 @@ alias git 'hub'
 abbr g 'git'
 
 # functions
+
 function git-cd
     set -l topdir (git rev-parse --show-toplevel)
 
@@ -55,38 +56,12 @@ function git-help
     commandline --insert "$cmd "
 end
 
-function github-switch-pr
-    set -l pr (gh pr list --state open --limit 100 2>/dev/null \
-    | fzf --preview 'gh pr view (echo {} | cut -f1)' \
-          --bind    'ctrl-e:execute(gh pr view --web (echo {} | cut -f1))' \
-    | cut -f1
-    )
-
-    if ! test -n "$pr"
-        commandline --function repaint
-        return
-    end
-
-    gh pr checkout "$pr"
-
-    echo -e '\n'
-    commandline --function repaint
-end
-
-function github-open-pr
-    gh pr view --web
-    echo -e '\n'
-    commandline --function repaint
-end
-
 # keybindings
 
 bind \cxgb git-switch-branch
 bind \cxgc git-cd
 bind \cxgg __ghq_repository_search
 bind \cxgh git-help
-bind \cxgp github-switch-pr
-bind \cxgo github-open-pr
 
 # keybindings (erase)
 bind --erase \cg '__ghq_repository_search'

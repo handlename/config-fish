@@ -29,5 +29,5 @@ end
 
 # keybindings
 
-bind \cxgp github-switch-pr
-bind \cxgo github-open-pr
+bind \cxhp github-switch-pr
+bind \cxho github-open-pr

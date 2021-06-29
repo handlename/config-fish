@@ -58,3 +58,7 @@ end
 # keybindings
 
 bind \cxah aws-help
+
+# envs
+
+set -x AWS_CLI_AUTO_PROMPT on-partial

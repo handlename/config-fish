@@ -24,6 +24,12 @@ alias e 'emacsclient -n'
 # mosh
 alias mosh 'LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 mosh'
 
-# abbrev
+# aws
 abbr --add aw aswrap
 abbr --add tf terraform
+
+# docker
+abbr --add dr docker run -it --rm --entrypoint bash
+
+# bat
+abbr --add jqb 'jq -S | bat -l json'

@@ -1,6 +1,12 @@
 # for Github
 # set -x GITHUB_TOKEN SECRET
 
+# completions
+
+if which gh >/dev/null
+    eval (gh completion -s fish)
+end
+
 # functions
 
 function github-switch-pr

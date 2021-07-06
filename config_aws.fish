@@ -55,6 +55,16 @@ function __init-aws-help
     rm -rf "$tmpdir"
 end
 
+# completion
+
+complete -c aws -f -a '(
+    begin
+        set -lx COMP_SHELL fish
+        set -lx COMP_LINE (commandline)
+        aws_completer
+    end
+)'
+
 # keybindings
 
 bind \cxah aws-help

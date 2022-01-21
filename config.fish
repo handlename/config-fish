@@ -1,4 +1,4 @@
-set -x SHELL /usr/local/bin/fish
+set -x SHELL (which fish)
 
 # $PATH
 set -x PATH /usr/local/bin $PATH

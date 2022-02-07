@@ -56,6 +56,13 @@ function git-help
     commandline --insert "$cmd "
 end
 
+function git-generate-ignore
+    gibo list \
+    | fzf -m \
+          --preview 'gibo dump {}' \
+    | xargs gibo dump
+end
+
 # keybindings
 
 bind \cxgb git-switch-branch

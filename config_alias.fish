@@ -27,7 +27,6 @@ alias mosh 'LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 mosh'
 # aws
 alias aws aws-exec
 abbr --add aw aswrap
-abbr --add tf terraform
 
 function aws-exec
     if [ -z $AWS_PROFILE ]
@@ -36,6 +35,12 @@ function aws-exec
     end
     command aws-vault exec $AWS_PROFILE -- aws $argv
 end
+
+# terraform
+abbr --add tf terraform
+abbr --add tfa 'TF_CLI_ARGS=\'\''
+abbr --add tfaa 'TF_CLI_ARGS_apply=\'\''
+abbr --add tfap 'TF_CLI_ARGS_plan=\'\''
 
 # docker
 abbr --add dr docker run -it --rm --entrypoint bash

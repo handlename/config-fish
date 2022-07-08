@@ -12,7 +12,7 @@ set config_dir (dirname (status -f))
 source $config_dir/config_fisher.fish
 source $config_dir/config_fzf.fish
 
-source $config_dir/config_anyenv.fish
+source $config_dir/config_asdf.fish
 source $config_dir/config_direnv.fish
 source $config_dir/config_aws.fish # prefix: \cxa
 source $config_dir/config_docker.fish #prefix: \cxd

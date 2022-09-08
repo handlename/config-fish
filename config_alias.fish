@@ -25,18 +25,8 @@ alias e 'emacsclient -n'
 alias mosh 'LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 mosh'
 
 # aws
-alias aws aws-exec
 abbr --add aw aswrap
-abbr --add av 'aws-vault exec $AWS_PROFILE --'
 abbr --add ap 'AWS_PROFILE='
-
-function aws-exec
-    if [ -z $AWS_PROFILE ]
-        echo 'please set $AWS_PROFILE' >&2
-        return
-    end
-    command aws-vault exec $AWS_PROFILE -- aws $argv
-end
 
 # terraform
 abbr --add tf terraform

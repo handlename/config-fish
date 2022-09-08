@@ -1,1 +1,1 @@
-source (brew --prefix asdf)/libexec/asdf.fish
+source (find (which brew; and brew --prefix asdf; or echo "$HOME/.asdf") -name asdf.fish)

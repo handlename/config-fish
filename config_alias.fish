@@ -3,7 +3,7 @@
 alias sudo='sudo '
 
 # ls
-alias l (find (brew --prefix vim)/ -name less.sh)
+alias l (find (which brew; and brew --prefix vim; or echo '/usr/share/vim')/ -name less.sh)
 alias ls 'ls -G'
 alias la 'ls -aG'
 alias ll 'ls -lhG'

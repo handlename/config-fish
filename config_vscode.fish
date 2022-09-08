@@ -1,4 +1,6 @@
-string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
+if which code >/dev/null
+    string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
+end
 
 function codessh
     set -f host (cat ~/.ssh/config | egrep '^Host' | awk '{print $2}' | fgrep -v '*' | fzf)

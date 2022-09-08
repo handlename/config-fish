@@ -1,5 +1,3 @@
-eval (hub alias -s)
-alias git 'hub'
 abbr g 'git'
 
 # functions

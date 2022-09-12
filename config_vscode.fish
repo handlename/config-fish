@@ -10,10 +10,7 @@ function codessh
     while true
         set -f next_parent (_codessh_select_dir $host $parent)
 
-        echo $next_parent
-
         if [ -z "$next_parent" ]
-            echo 'canceled'
             return
         end
 

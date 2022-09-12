@@ -1,1 +1,5 @@
-source (find (which brew; and brew --prefix asdf; or echo "$HOME/.asdf") -name asdf.fish)
+if [ (uname -s) = 'Darwin' ]
+    source (brew --prefix asdf)/asdf.fish
+else
+    source $HOME/.asdf/asdf.fish
+end

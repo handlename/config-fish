@@ -14,6 +14,7 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     printf '\f\r'
+    printf "%s%s:" (set_color --bold blue) (hostname)
     printf "%s%s" (set_color --bold yellow) (string replace "$HOME" '~' "$PWD")
     printf '%s%s' (set_color --bold green) (__fish_git_prompt)
     printf '\f\r'

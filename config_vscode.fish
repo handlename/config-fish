@@ -40,3 +40,16 @@ function _codessh_open_dir
 
     code --folder-uri "vscode-remote://ssh-remote+$host/$dir"
 end
+
+function codevm
+    set -f host (cat ~/.ssh/config | egrep '^Host' | awk '{print $2}' | fgrep 'multipass' | fzf)
+    if [ -z "$host" ]
+        return
+    end
+
+    set -f home_dir (ssh "$host" 'cd; pwd')
+
+    ssh $host "find ~/src -maxdepth 3 -mindepth 3 -type d" \
+        | fzf --preview "ssh $host 'ls {}'" \
+              --bind "ctrl-e:execute(_codessh_open_dir $host '{}')+abort"
+end

@@ -3,7 +3,7 @@ if which code >/dev/null
 end
 
 function codessh
-    set -f host (cat ~/.ssh/config | egrep '^Host' | awk '{print $2}' | fgrep -v '*' | fzf)
+    set -f host (_codessh_select_host)
     set -f home_dir (ssh "$host" 'cd; pwd')
     set -f parent "$home_dir"
 
@@ -16,6 +16,21 @@ function codessh
 
         set -f parent $next_parent
     end
+end
+
+function _codessh_select_host
+    set -f filter $argv[1]
+    if [ -z $filter ]
+        set -f filter ''
+    end
+
+    echo (cat ~/.ssh/config ~/.ssh/conf.d/* \
+        | egrep '^Host' \
+        | awk '{print $2}' \
+        | fgrep -v '*' \
+        | fgrep $filter \
+        | sort \
+        | fzf)
 end
 
 function _codessh_select_dir
@@ -42,7 +57,7 @@ function _codessh_open_dir
 end
 
 function codevm
-    set -f host (cat ~/.ssh/config | egrep '^Host' | awk '{print $2}' | fgrep 'multipass' | fzf)
+    set -f host (_codessh_select_host 'multipass.local')
     if [ -z "$host" ]
         return
     end

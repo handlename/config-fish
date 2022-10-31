@@ -64,7 +64,8 @@ function codevm
 
     set -f home_dir (ssh "$host" 'cd; pwd')
 
-    ssh $host "find ~/src -maxdepth 3 -mindepth 3 -type d" \
-        | fzf --preview "ssh $host 'ls {}'" \
-              --bind "ctrl-e:execute(_codessh_open_dir $host '{}')+abort"
+    set -f project (ssh $host "find ~/src -maxdepth 3 -mindepth 3 -type d" \
+        | fzf --preview "ssh $host 'ls {}'")
+
+    _codessh_open_dir $host $project
 end

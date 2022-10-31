@@ -1,5 +1,6 @@
 cache/
 fish_variables
+fish_plugins
 fisher/
 functions/fisher.fish
 private.fish

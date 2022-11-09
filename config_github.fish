@@ -33,6 +33,32 @@ function github-open-pr
     commandline --function repaint
 end
 
+function github-codespace-ssh
+    set -f space (_github_select_codespace)
+
+    if ! test -n "$space"
+        commandline --function repaint
+        return
+    end
+
+    gh codespace ssh -c $space
+end
+
+function github-codespace-open
+    set -f space (_github_select_codespace)
+
+    if ! test -n "$space"
+        commandline --function repaint
+        return
+    end
+
+    gh codespace code -c $space
+end
+
+function _github_select_codespace
+    gh codespace list | fzf | awk '{print $1}'
+end
+
 # keybindings
 
 bind \cxhp github-switch-pr

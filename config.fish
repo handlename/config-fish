@@ -17,6 +17,7 @@ if [ (uname) = 'Darwin' ]
 end
 
 source $config_dir/config_asdf.fish
+source $config_dir/config_1password.fish
 source $config_dir/config_direnv.fish
 source $config_dir/config_aws.fish # prefix: \cxa
 source $config_dir/config_docker.fish #prefix: \cxd
@@ -27,5 +28,6 @@ source $config_dir/config_ssh.fish
 source $config_dir/config_vscode.fish
 
 source $config_dir/config_alias.fish
+# source $config_dir/config_tide.fish
 
 source $config_dir/config_emacs.fish

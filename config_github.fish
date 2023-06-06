@@ -56,7 +56,18 @@ function github-codespace-open
 end
 
 function _github_select_codespace
-    gh codespace list | fzf | awk '{print $1}'
+    gh codespace list \
+        --json 'name,gitStatus,state,createdAt' \
+        --jq '["Name", "Branch", "State", "CreatedAt"],
+            (sort_by(.createdAt)
+            | reverse
+            | .[]
+            | [.name, .gitStatus.ref, .state, .createdAt])
+            | @csv' \
+    | csv2table -p -b=false -h=false \
+    | grep -v '^$' \
+    | fzf --header-lines=1 \
+    | awk '{print $1}'
 end
 
 # keybindings

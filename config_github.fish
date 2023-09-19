@@ -57,12 +57,12 @@ end
 
 function _github_select_codespace
     gh codespace list \
-        --json 'name,gitStatus,state,createdAt' \
-        --jq '["Name", "Branch", "State", "CreatedAt"],
+        --json 'repository,gitStatus,name,state,createdAt' \
+        --jq '["Repository", "Branch", "Name", "State", "CreatedAt"],
             (sort_by(.createdAt)
             | reverse
             | .[]
-            | [.name, .gitStatus.ref, .state, .createdAt])
+            | [.repository, .gitStatus.ref, .name, .state, .createdAt])
             | @csv' \
     | csv2table -p -b=false -h=false \
     | grep -v '^$' \

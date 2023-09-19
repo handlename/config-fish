@@ -67,7 +67,7 @@ function _github_select_codespace
     | csv2table -p -b=false -h=false \
     | grep -v '^$' \
     | fzf --header-lines=1 \
-    | awk '{print $1}'
+    | perl -nE 'print [split(/ *\| */)]->[2]'
 end
 
 # keybindings

@@ -68,5 +68,10 @@ bind \cxgc git-cd
 bind \cxgg __ghq_repository_search
 bind \cxgh git-help
 
+abbr --add xgb git-switch-branch
+abbr --add xgc git-cd
+abbr --add xgg __ghq_repository_search
+abbr --add xgh git-help
+
 # keybindings (erase)
 bind --erase \cg '__ghq_repository_search'

@@ -76,3 +76,8 @@ bind \cxhp github-switch-pr
 bind \cxho github-open-pr
 bind \cxco github-codespace-open
 bind \cxcs github-codespace-ssh
+
+abbr --add xhp github-switch-pr
+abbr --add xho github-open-pr
+abbr --add xco github-codespace-open
+abbr --add xcs github-codespace-ssh

@@ -2,6 +2,19 @@ abbr g git
 
 # functions
 
+function git-goto-repository
+    set -l root (ghq root)
+
+    set -l path (ghq list \
+        | fzf --preview="git -C $root/{1} status")
+
+    if test -n "$path"
+        cd "$root/$path"
+    end
+
+    commandline --function repaint
+end
+
 function git-cd
     set -l topdir (git rev-parse --show-toplevel)
 
@@ -65,12 +78,12 @@ end
 
 bind \cxgb git-switch-branch
 bind \cxgc git-cd
-bind \cxgg __ghq_repository_search
+bind \cxgg git-goto-repository
 bind \cxgh git-help
 
 abbr --add xgb git-switch-branch
 abbr --add xgc git-cd
-abbr --add xgg __ghq_repository_search
+abbr --add xgg git-goto-repository
 abbr --add xgh git-help
 
 # keybindings (erase)

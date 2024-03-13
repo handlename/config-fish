@@ -85,6 +85,3 @@ abbr --add xgb git-switch-branch
 abbr --add xgc git-cd
 abbr --add xgg git-goto-repository
 abbr --add xgh git-help
-
-# keybindings (erase)
-bind --erase \cg __ghq_repository_search

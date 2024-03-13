@@ -12,7 +12,7 @@ set config_dir (dirname (status -f))
 source $config_dir/config_fisher.fish
 source $config_dir/config_fzf.fish
 
-if [ (uname) = 'Darwin' ]
+if [ (uname) = Darwin ]
     source $config_dir/config_homebrew.fish
 end
 

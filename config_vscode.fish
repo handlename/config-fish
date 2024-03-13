@@ -1,5 +1,5 @@
-if which code >/dev/null and string match -q "$TERM_PROGRAM" "vscode"
-     . (code --locate-shell-integration-path fish)
+if which code >/dev/null and string match -q "$TERM_PROGRAM" vscode
+    . (code --locate-shell-integration-path fish)
 end
 
 function codessh

@@ -2,7 +2,7 @@
 
 function aws-help
     set -l cachedir (dirname (status --current-filename))/cache
-    set -l cmdfile  "$cachedir/awscli_commands.txt"
+    set -l cmdfile "$cachedir/awscli_commands.txt"
 
     if ! test -f "$cmdfile"
         __init-aws-help
@@ -24,7 +24,7 @@ end
 function __init-aws-help
     set -l tmpdir (mktemp -d)
     set -l cachedir (dirname (status --current-filename))/cache
-    set -l outfile  "$cachedir/awscli_commands.txt"
+    set -l outfile "$cachedir/awscli_commands.txt"
     rm -f "$outfile"
 
     mkdir -p "$cachedir"
@@ -46,7 +46,7 @@ function __init-aws-help
         )
 
         for operation in $operations
-            echo "$service $operation" >> "$outfile"
+            echo "$service $operation" >>"$outfile"
         end
     end
 

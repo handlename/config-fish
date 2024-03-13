@@ -64,10 +64,10 @@ function _github_select_codespace
             | .[]
             | [.repository, .gitStatus.ref, .name, .state, .createdAt])
             | @csv' \
-    | csv2table -p -b=false -h=false \
-    | grep -v '^$' \
-    | fzf --header-lines=1 \
-    | perl -nE 'print [split(/ *\| */)]->[2]'
+        | csv2table -p -b=false -h=false \
+        | grep -v '^$' \
+        | fzf --header-lines=1 \
+        | perl -nE 'print [split(/ *\| */)]->[2]'
 end
 
 # keybindings

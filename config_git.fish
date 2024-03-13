@@ -1,4 +1,4 @@
-abbr g 'git'
+abbr g git
 
 # functions
 
@@ -56,9 +56,9 @@ end
 
 function git-generate-ignore
     gibo list \
-    | fzf -m \
-          --preview 'gibo dump {}' \
-    | xargs gibo dump
+        | fzf -m \
+        --preview 'gibo dump {}' \
+        | xargs gibo dump
 end
 
 # keybindings
@@ -74,4 +74,4 @@ abbr --add xgg __ghq_repository_search
 abbr --add xgh git-help
 
 # keybindings (erase)
-bind --erase \cg '__ghq_repository_search'
+bind --erase \cg __ghq_repository_search

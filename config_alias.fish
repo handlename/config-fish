@@ -3,7 +3,7 @@
 alias sudo='sudo '
 
 # ls
-alias l 'less'
+alias l less
 alias ls 'ls -G'
 alias la 'ls -aG'
 alias ll 'ls -lhG'

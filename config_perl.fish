@@ -1,2 +1,2 @@
-abbr pl 'perl'
-abbr pd 'perldoc'
+abbr pl perl
+abbr pd perldoc

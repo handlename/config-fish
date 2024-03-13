@@ -69,6 +69,8 @@ complete -c aws -f -a '(
 
 bind \cxah aws-help
 
+abbr xah aws-help
+
 # envs
 
 set -x AWS_CLI_AUTO_PROMPT on-partial

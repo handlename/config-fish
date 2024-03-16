@@ -33,7 +33,8 @@ function git-switch-branch
     set branch (git branch --all \
     | grep -v HEAD \
     | string trim \
-    | fzf --no-multi \
+    | fzf --preview="git log --first-parent {}" \
+          --no-multi \
     )
 
     if test -z "$branch"

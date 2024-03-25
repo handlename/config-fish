@@ -9,10 +9,18 @@ end
 
 # functions
 
+function run-gh
+    if which op >/dev/null
+        op run -- gh $argv
+    else
+        gh $argv
+    end
+end
+
 function github-switch-pr
-    set -l pr (gh pr list --state open --limit 100 2>/dev/null \
-    | fzf --preview 'gh pr view (echo {} | cut -f1)' \
-          --bind    'ctrl-e:execute(gh pr view --web (echo {} | cut -f1))' \
+    set -l pr (run-gh pr list --state open --limit 100 2>/dev/null \
+    | fzf --preview 'run-gh pr view (echo {} | cut -f1)' \
+          --bind    'ctrl-e:execute(run-gh pr view --web (echo {} | cut -f1))' \
     | cut -f1
     )
 
@@ -21,14 +29,14 @@ function github-switch-pr
         return
     end
 
-    gh pr checkout "$pr"
+    run-gh pr checkout "$pr"
 
     echo -e '\n'
     commandline --function repaint
 end
 
 function github-open-pr
-    gh pr view --web
+    run-gh pr view --web
     echo -e '\n'
     commandline --function repaint
 end
@@ -41,7 +49,7 @@ function github-codespace-ssh
         return
     end
 
-    gh codespace ssh -c $space
+    run-gh codespace ssh -c $space
 end
 
 function github-codespace-open
@@ -52,11 +60,11 @@ function github-codespace-open
         return
     end
 
-    gh codespace code -c $space
+    run-gh codespace code -c $space
 end
 
 function _github_select_codespace
-    gh codespace list \
+    run-gh codespace list \
         --json 'repository,gitStatus,name,state,createdAt' \
         --jq '["Repository", "Branch", "Name", "State", "CreatedAt"],
             (sort_by(.createdAt)

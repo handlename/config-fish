@@ -26,7 +26,6 @@ source $config_dir/config_github.fish # prefix: \cxh
 source $config_dir/config_perl.fish
 source $config_dir/config_ssh.fish
 source $config_dir/config_vscode.fish
-source $config_dir/config_warp.fish
 
 source $config_dir/config_alias.fish
 source $config_dir/config_tide.fish

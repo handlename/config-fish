@@ -1,10 +1,9 @@
 set -x SHELL (which fish)
 
 # $PATH
-set -x PATH /usr/local/bin $PATH
-set -x PATH /usr/local/sbin $PATH
-set -x PATH ~/src/github.com/handlename/kayac-private/bin $PATH
-set -x PATH ~/bin $PATH
+fish_add_path ~/bin
+fish_add_path /usr/local/sbin
+fish_add_path /usr/local/bin
 
 # source *.fish
 set config_dir (dirname (status -f))

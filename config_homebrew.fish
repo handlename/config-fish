@@ -5,4 +5,4 @@ eval (/opt/homebrew/bin/brew shellenv)
 set -x HOMEBREW_NO_ANALYTICS 1
 
 # for curl
-set -x PATH (brew --prefix)/opt/curl/bin $PATH
+fish_add_path (brew --prefix)/opt/curl/bin $PATH
